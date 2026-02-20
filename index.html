@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samon Strength — Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand: #0A5E36;
+    --brand-light: #0d7a47;
+    --brand-dark: #084a2b;
+    --brand-subtle: #e8f5ee;
+    --brand-glow: rgba(10, 94, 54, 0.08);
+    --cream: #FAFAF7;
+    --white: #FFFFFF;
+    --text: #1a1a1a;
+    --text-secondary: #5a5a5a;
+    --text-muted: #8a8a8a;
+    --border: #e8e8e4;
+    --border-light: #f0f0ec;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    padding: 60px 24px 20px;
+    position: relative;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 300px;
+    background: linear-gradient(180deg, var(--brand-subtle) 0%, transparent 100%);
+    z-index: 0;
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .logo-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--brand);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    letter-spacing: -1px;
+  }
+
+  .logo-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--brand);
+    letter-spacing: -0.5px;
+  }
+
+  .header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 400;
+    color: var(--text);
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+    line-height: 1.15;
+  }
+
+  .header p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* SECTIONS */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--brand);
+    background: var(--brand-subtle);
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 36px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* PRICING CARDS */
+  .pricing-section {
+    padding: 40px 0;
+  }
+
+  .cards-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    border-color: rgba(10, 94, 54, 0.25);
+    box-shadow: 0 8px 40px var(--brand-glow);
+    transform: translateY(-2px);
+  }
+
+  .card.featured {
+    border: 2px solid var(--brand);
+    background: var(--white);
+  }
+
+  .card.featured::before {
+    content: 'Most Popular';
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--brand);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .card-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+  }
+
+  .card-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  .card-price .dollar {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--brand);
+    align-self: flex-start;
+    margin-top: 6px;
+  }
+
+  .card-price .amount {
+    font-family: 'DM Serif Display', serif;
+    font-size: 52px;
+    color: var(--text);
+    letter-spacing: -2px;
+    line-height: 1;
+  }
+
+  .card-price .period {
+    font-size: 15px;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-left: 2px;
+  }
+
+  .card-subtotal {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .card-savings {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand);
+    background: var(--brand-subtle);
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .card-divider {
+    height: 1px;
+    background: var(--border-light);
+    margin: 20px 0;
+  }
+
+  .card-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card-features li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+
+  .card-features li::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border-radius: 50%;
+    background: var(--brand-subtle);
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='%230A5E36' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 2px;
+  }
+
+  /* IN-PERSON CARDS */
+  .session-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+
+  .session-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .session-card:hover {
+    border-color: rgba(10, 94, 54, 0.25);
+    box-shadow: 0 8px 40px var(--brand-glow);
+    transform: translateY(-2px);
+  }
+
+  .session-card .sessions-count {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: var(--brand);
+    margin-bottom: 4px;
+  }
+
+  .session-card .sessions-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .session-card .session-price {
+    font-family: 'DM Serif Display', serif;
+    font-size: 40px;
+    color: var(--text);
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+
+  .session-card .session-unit {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .session-card .session-savings {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand);
+    background: var(--brand-subtle);
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  /* REFERRAL */
+  .referral {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 60px;
+  }
+
+  .referral-icon {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    background: var(--brand-subtle);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+  }
+
+  .referral-content h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .referral-content p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .referral-content strong {
+    color: var(--brand);
+    font-weight: 600;
+  }
+
+  /* GETTING STARTED */
+  .getting-started {
+    text-align: center;
+    padding: 40px 0 80px;
+    position: relative;
+  }
+
+  .getting-started::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 200px;
+    background: linear-gradient(0deg, var(--brand-subtle) 0%, transparent 100%);
+    z-index: 0;
+  }
+
+  .steps {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .step {
+    flex: 1;
+    text-align: center;
+  }
+
+  .step-num {
+    width: 40px;
+    height: 40px;
+    background: var(--brand);
+    color: white;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+
+  .step h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .step p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* FOOTER NOTE */
+  .footer-note {
+    text-align: center;
+    padding: 0 24px 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-note p {
+    font-size: 13px;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .cards-row, .session-cards {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .referral {
+      flex-direction: column;
+      text-align: center;
+      padding: 32px 24px;
+    }
+
+    .steps {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .header-content { animation: fadeUp 0.8s ease both; }
+  .pricing-section { animation: fadeUp 0.8s ease 0.15s both; }
+  .card:nth-child(1) { animation: fadeUp 0.6s ease 0.2s both; }
+  .card:nth-child(2) { animation: fadeUp 0.6s ease 0.3s both; }
+  .card:nth-child(3) { animation: fadeUp 0.6s ease 0.4s both; }
+  .session-card:nth-child(1) { animation: fadeUp 0.6s ease 0.2s both; }
+  .session-card:nth-child(2) { animation: fadeUp 0.6s ease 0.3s both; }
+  .session-card:nth-child(3) { animation: fadeUp 0.6s ease 0.4s both; }
+  .referral { animation: fadeUp 0.6s ease 0.3s both; }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-content">
+      <div class="logo-mark">
+        <div class="logo-icon">S</div>
+        <div class="logo-text">Samon Strength</div>
+      </div>
+      <h2>Your Coach in Your Corner</h2>
+      <p>Build the routine that sticks. Evidence-based coaching designed to make training a habit you keep — not a chore you quit.</p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- VIRTUAL COACHING -->
+    <div class="pricing-section">
+      <span class="section-label">Virtual Coaching</span>
+      <div class="section-title">Your Custom Training Plan</div>
+      <p class="section-desc">Personalized programming with weekly rep &amp; load updates, mobility and prehab work for aches &amp; pains, direct messaging support, and a monthly 45-minute coaching call.</p>
+
+      <div class="cards-row">
+        <!-- Month to Month -->
+        <div class="card">
+          <div class="card-label">Month-to-Month</div>
+          <div class="card-price">
+            <span class="dollar">$</span>
+            <span class="amount">80</span>
+            <span class="period">/mo</span>
+          </div>
+          <div class="card-subtotal">Billed monthly</div>
+          <div class="card-divider"></div>
+          <ul class="card-features">
+            <li>Custom resistance training program</li>
+            <li>Personalized mobility work</li>
+            <li>Weekly updates &amp; adjustments</li>
+            <li>Direct messaging with replies within 24–48 hours</li>
+            <li>Monthly 45-min coaching call</li>
+            <li>Cancel anytime</li>
+          </ul>
+        </div>
+
+        <!-- 3 Month -->
+        <div class="card">
+          <div class="card-label">3-Month Commitment</div>
+          <div class="card-price">
+            <span class="dollar">$</span>
+            <span class="amount">70</span>
+            <span class="period">/mo</span>
+          </div>
+          <div class="card-subtotal">$210 billed upfront</div>
+          <span class="card-savings">Save $30</span>
+          <div class="card-divider"></div>
+          <ul class="card-features">
+            <li>Everything in month-to-month</li>
+            <li>Locked-in rate for 3 months</li>
+            <li>Best for building consistency</li>
+          </ul>
+        </div>
+
+        <!-- 6 Month -->
+        <div class="card">
+          <div class="card-label">6-Month Commitment</div>
+          <div class="card-price">
+            <span class="dollar">$</span>
+            <span class="amount">65</span>
+            <span class="period">/mo</span>
+          </div>
+          <div class="card-subtotal">$390 billed upfront</div>
+          <span class="card-savings">Save $90</span>
+          <div class="card-divider"></div>
+          <ul class="card-features">
+            <li>Everything in month-to-month</li>
+            <li>Best value for long-term results</li>
+            <li>Lowest monthly rate</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- IN-PERSON SESSIONS -->
+      <span class="section-label">Add-On</span>
+      <div class="section-title">In-Person Sessions</div>
+      <p class="section-desc">Hands-on coaching during your workout — form guidance, real-time cues, and accountability. Available as an add-on to any virtual coaching plan.</p>
+
+      <div class="session-cards">
+        <div class="session-card">
+          <div class="sessions-count">1</div>
+          <div class="sessions-label">Session</div>
+          <div class="session-price">$45</div>
+          <div class="session-unit">per session</div>
+        </div>
+        <div class="session-card">
+          <div class="sessions-count">4</div>
+          <div class="sessions-label">Sessions / mo</div>
+          <div class="session-price">$160</div>
+          <div class="session-unit">$40 per session</div>
+          <span class="session-savings">Save $20/mo</span>
+        </div>
+        <div class="session-card">
+          <div class="sessions-count">8</div>
+          <div class="sessions-label">Sessions / mo</div>
+          <div class="session-price">$290</div>
+          <div class="session-unit">$36.25 per session</div>
+          <span class="session-savings">Save $70/mo</span>
+        </div>
+      </div>
+
+      <!-- REFERRAL -->
+      <div class="referral">
+        <div class="referral-icon">🤝</div>
+        <div class="referral-content">
+          <h3>Refer a Friend, Train Free</h3>
+          <p>Know someone who'd benefit from personalized coaching? Refer a friend who signs up for any plan and get <strong>your next month of programming free</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GETTING STARTED -->
+    <div class="getting-started">
+      <span class="section-label">How It Works</span>
+      <div class="section-title" style="margin-bottom: 36px;">Getting Started</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h4>Fill Out Your Info</h4>
+          <p>Complete a quick form covering your medical history, lifestyle, experience, and goals.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h4>Free Intake Call</h4>
+          <p>We hop on a call to discuss your form, review your history, and map out your plan.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h4>Start Training</h4>
+          <p>Your custom program lands in Everfit and you start training with full support from day one.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    <p>All prices in USD. Virtual coaching plan required for in-person session clients. Have questions? Reach out anytime.</p>
+  </div>
+
+</body>
+</html>
